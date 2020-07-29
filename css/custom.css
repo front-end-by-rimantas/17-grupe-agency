@@ -1,0 +1,13 @@
+.bg-grey {
+    background-color: #F8F9FC;
+}
+
+.bg-dark {
+    background-color: #1C1D23;
+    color: #fff;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 50px;
+}
