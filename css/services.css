@@ -1,0 +1,77 @@
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+    .service {
+        padding: 30px 10px;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.7s;
+        position: relative;
+    }
+        .service::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            z-index: -1;
+            border-radius: inherit;
+            background: #f61b10;
+            background: -moz-linear-gradient(90deg, rgba(246,27,16,1) 0%, rgba(239,9,99,1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(246,27,16,1) 0%, rgba(239,9,99,1) 100%);
+            background: linear-gradient(90deg, rgba(246,27,16,1) 0%, rgba(239,9,99,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f61b10",endColorstr="#ef0963",GradientType=1);
+            opacity: 1;
+        }
+        .service > svg {
+            height: 60px;
+            width: 60px;
+            stroke: currentColor;
+            stroke-width: 1px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        .service > h3 {
+            margin: 30px 0 20px;
+            color: inherit;
+            font-size: 22px;
+            line-height: 25px;
+        }
+        .service > p {
+            color: inherit;
+        }
+@media (min-width: 670px) {
+    .service {
+        background: #eee;
+        color: #444;
+    }
+        .service::before {
+            opacity: 0;
+        }
+        .service > svg {
+            stroke: #f61b10;
+        }
+        .service:hover {
+            color: #fff;
+            background: transparent;
+        }
+            .service:hover::before {
+                opacity: 1;
+            }
+        .service:hover > svg {
+            stroke: #fff;
+        }
+}
+@media (min-width: 1400px) {
+    .services {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+        .service {
+            padding: 30px 20px;
+        }
+}
