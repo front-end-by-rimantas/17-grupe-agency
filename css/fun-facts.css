@@ -1,0 +1,18 @@
+.container > .row.fact-list {
+    row-gap: 40px;
+}
+    .fact-list > .fact {
+        text-align: center;
+    }
+        .fact-list > .fact > .number {
+            margin-bottom: 20px;
+            color: #ef0963;
+            font-size: 80px;
+            line-height: 80px;
+            font-weight: bold;
+        }
+            .fact-list > .fact > .number::after {
+                content: '+';
+                font-size: 40px;
+                vertical-align: super;
+            }
