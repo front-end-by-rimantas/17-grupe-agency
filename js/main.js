@@ -4,9 +4,13 @@ import data from '../data/data.js';
 
 // import rendering functions
 import { renderServices } from './renderServices.js';
+import { renderFunFacts, addEventListenerFunFactsOnScroll } from './renderFunFacts.js';
 
 // execute
-
-const { services } = data;
+const { services, funFacts } = data;
 
 renderServices('#services .services', services);
+renderFunFacts('#fun_facts > .fact-list', funFacts);
+
+// actions after content rendering
+addEventListenerFunFactsOnScroll();
