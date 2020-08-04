@@ -1,12 +1,14 @@
-function renderServices( selector, data ) {
+function renderServices(selector, data) {
     // validation
+
+    console.log(data);
 
     // logic
     const DOM = document.querySelector(selector);
     let HTML = '';
     const size = data.length;
 
-    for ( let i=0; i<size; i++ ) {
+    for (let i = 0; i < size; i++) {
         const service = data[i];
         HTML += `<div class="service">
                     ${service.icon}
