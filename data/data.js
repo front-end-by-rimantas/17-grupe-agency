@@ -46,7 +46,135 @@ const funFacts = [
     }
 ];
 
+const portfolio = [
+    {
+        photo: 'portfolio-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-3.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-4.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-3.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-4.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'portfolio-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    }
+];
+
+const news = [
+    {
+        photo: 'blog-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-3.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-4.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-3.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-4.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-1.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    },
+    {
+        photo: 'blog-2.jpg',
+        category: 'Development',
+        title: 'Getting ticket to the big show',
+        link: '#'
+    }
+];
+
 export default {
     // services,
-    funFacts
+    funFacts,
+    portfolio,
+    news
 };
