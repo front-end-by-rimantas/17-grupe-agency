@@ -3,21 +3,20 @@ class Slider {
         this.selector = params.selector;
         this.data = params.data;
         this.renderPosition = params.renderPosition;
+        this.maxItemsOnMobile = 9;
 
         this.DOM = null;
+        this.cardList = null;
+        this.controls = null;
 
-        console.log(this);
         this.init();
     }
 
     init() {
-        // TODO: patikrina ar egzistuoja nurodytas selector
         if (!this.isValidSelector()) {
             return;
         }
         this.willItOverwriteContent();
-
-        // TODO: jei taip, tai generuoja turini
         this.render();
 
         // TODO: prideda eventListener
@@ -58,25 +57,56 @@ class Slider {
             console.error('Slider selector is empty string');
             return false;
         }
-        const DOM = document.querySelector(this.selector);
-        if (!DOM) {
+        this.DOM = document.querySelector(this.selector);
+        if (!this.DOM) {
             console.error('Cound not find HTML element by given selector.');
             return false;
         }
-        this.DOM = DOM;
         return true;
     }
 
     render() {
+        this.cardList = new CardList();
+        this.controls = new Controls();
+
         const HTML = `<div class="slider">
-                            <div class="list">SLIDER ITEM LIST</div>
-                            <div class="controls">......</div>
+                            ${this.cardList.render()}
+                            ${this.controls.render()}
                         </div>`;
         if (this.renderPosition === undefined) {
             this.DOM.innerHTML = HTML;
         } else {
             this.DOM.insertAdjacentHTML(this.renderPosition, HTML);
         }
+    }
+}
+
+class CardList {
+    constructor(params) {
+        // console.log(params);
+    }
+
+    render() {
+        return '<div class="list">SLIDER ITEM LIST</div>';
+    }
+}
+
+class Controls {
+    constructor(params) {
+        this.currentlyActive = 0;
+        // console.log(params);
+    }
+
+    render() {
+        return '<div class="controls">......</div>';
+    }
+
+    showNext(step = 1) {
+        this.currentlyActive += step;
+    }
+
+    showPrevious(step = 1) {
+        this.currentlyActive -= step;
     }
 }
 
