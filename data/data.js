@@ -111,61 +111,61 @@ const portfolio = [
 
 const news = [
     {
-        photo: 'blog-1.jpg',
+        photo: 'blog-01.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-2.jpg',
+        photo: 'blog-02.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-3.jpg',
+        photo: 'blog-03.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-4.jpg',
+        photo: 'blog-04.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-1.jpg',
+        photo: 'blog-01.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-2.jpg',
+        photo: 'blog-02.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-3.jpg',
+        photo: 'blog-03.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-4.jpg',
+        photo: 'blog-04.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-1.jpg',
+        photo: 'blog-01.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'
     },
     {
-        photo: 'blog-2.jpg',
+        photo: 'blog-02.jpg',
         category: 'Development',
         title: 'Getting ticket to the big show',
         link: '#'

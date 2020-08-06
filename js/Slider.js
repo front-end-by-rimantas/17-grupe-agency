@@ -3,6 +3,7 @@ class Slider {
         this.selector = params.selector;
         this.data = params.data;
         this.renderPosition = params.renderPosition;
+        this.imgPath = params.imgPath;
         this.maxItemsOnMobile = 9;
 
         this.DOM = null;
@@ -66,10 +67,13 @@ class Slider {
     }
 
     render() {
-        this.cardList = new CardList();
+        this.cardList = new CardList({
+            data: this.data,
+            imgPath: this.imgPath
+        });
         this.controls = new Controls();
 
-        const HTML = `<div class="slider">
+        const HTML = `<div class="slider" style="--items-count: ${this.data.length};">
                             ${this.cardList.render()}
                             ${this.controls.render()}
                         </div>`;
@@ -83,11 +87,26 @@ class Slider {
 
 class CardList {
     constructor(params) {
-        // console.log(params);
+        this.data = params.data;
+        this.imgPath = params.imgPath;
     }
 
     render() {
-        return '<div class="list">SLIDER ITEM LIST</div>';
+        let HTML = '';
+        for (const item of this.data) {
+            console.log(item);
+            HTML += `<div class="item">
+                        <img src="${this.imgPath + item.photo}" alt="${item.title} list image">
+                        <div class="details">
+                            <div class="category">${item.category}</div>
+                            <h3 class="title">${item.title}</h3>
+                            <a href="${item.link}" class="btn read-more">Read more</a>
+                        </div>
+                    </div>`;
+        }
+        return `<div class="list">
+                    ${HTML}
+                </div>`;
     }
 }
 

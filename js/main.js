@@ -17,11 +17,13 @@ renderFunFacts('#fun_facts > .fact-list', funFacts);
 new Slider({
     selector: '#portfolio_slider',
     data: portfolio,
-    renderPosition: 'beforeend'
+    renderPosition: 'beforeend',
+    imgPath: './img/portfolio/'
 });
 new Slider({
     selector: '#news_slider',
-    data: news
+    data: news,
+    imgPath: './img/blog/'
 });
 
 // actions after content rendering
