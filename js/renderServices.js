@@ -1,8 +1,6 @@
 function renderServices(selector, data) {
     // validation
 
-    console.log(data);
-
     // logic
     const DOM = document.querySelector(selector);
     let HTML = '';

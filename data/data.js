@@ -31,6 +31,132 @@
 //     }
 // ];
 
+// const portfolio = [
+//     {
+//         photo: 'portfolio-1.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-2.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-3.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-4.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-1.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-2.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-3.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-4.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-1.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'portfolio-2.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     }
+// ];
+
+// const news = [
+//     {
+//         photo: 'blog-01.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-02.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-03.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-04.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-01.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-02.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-03.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-04.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-01.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     },
+//     {
+//         photo: 'blog-02.jpg',
+//         category: 'Development',
+//         title: 'Getting ticket to the big show',
+//         link: '#'
+//     }
+// ];
+
 const funFacts = [
     {
         number: 199,
@@ -48,5 +174,7 @@ const funFacts = [
 
 export default {
     // services,
-    funFacts
+    funFacts,
+    // portfolio,
+    // news
 };
