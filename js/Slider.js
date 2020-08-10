@@ -16,7 +16,7 @@ class Slider {
         this.init();
     }
 
-    async init() {
+    init = async () => {
         if (!this.isValidSelector()) {
             return;
         }
@@ -29,7 +29,7 @@ class Slider {
         this.controls.addEvents();
     }
 
-    willItOverwriteContent() {
+    willItOverwriteContent = () => {
         if (this.renderPosition === undefined) {
             if (this.DOM.innerHTML) {
                 console.warn('Rendering Slider overwritten your content.');
@@ -51,7 +51,7 @@ class Slider {
         }
     }
 
-    isValidSelector() {
+    isValidSelector = () => {
         if (this.selector === undefined) {
             console.error('Slider has to have a privided selector (where to render it).');
             return false;
@@ -72,7 +72,7 @@ class Slider {
         return true;
     }
 
-    render() {
+    render = () => {
         const itemsCount = this.data.length > this.maxItems ? this.maxItems : this.data.length;
 
         this.cardList = new CardList({
@@ -82,7 +82,8 @@ class Slider {
         });
         this.controls = new Controls({
             itemsCount: itemsCount,
-            parentDOM: this.DOM
+            parentDOM: this.DOM,
+            updateSliderList: this.updateSliderList
         });
 
         const HTML = `<div class="slider" style="--items-count: ${itemsCount};">
@@ -95,6 +96,11 @@ class Slider {
             this.DOM.insertAdjacentHTML(this.renderPosition, HTML);
         }
     }
+
+    updateSliderList = (diff) => {
+        // this - context pasikeite i Controls objekta, nors mums reikia Slider objekto
+        this.cardList.shiftList(diff);
+    }
 }
 
 class CardList {
@@ -104,7 +110,7 @@ class CardList {
         this.itemsCount = params.itemsCount;
     }
 
-    render() {
+    render = () => {
         let HTML = '';
         const size = this.data.length;
         for (let i = 0; i < this.itemsCount; i++) {
@@ -122,29 +128,38 @@ class CardList {
                     ${HTML}
                 </div>`;
     }
+
+    shiftList(diff) {
+        console.log('Card list pajuda per:', diff);
+    }
 }
 
 class Controls {
     constructor(params) {
         this.itemsCount = params.itemsCount;
         this.parentDOM = params.parentDOM;
+        this.updateSliderList = params.updateSliderList;
 
         this.bubblesDOM = null;
 
         this.currentlyActive = 0;
     }
 
-    render() {
+    render = () => {
+        let otherBubblesHTML = '';
+        for (let i = 1; i < this.itemsCount; i++) {
+            otherBubblesHTML += `<div class="bubble" data-index="${i}"></div>`;
+        }
         return `<div class="controls">
-                    <div class="bubble active"></div>${'<div class="bubble"></div>'.repeat(this.itemsCount - 1)}
+                    <div class="bubble active" data-index="0"></div>${otherBubblesHTML}
                 </div>`;
     }
 
-    addEvents() {
+    addEvents = () => {
         this.bubblesDOM = this.parentDOM.querySelectorAll('.bubble');
 
         for (const bubble of this.bubblesDOM) {
-            bubble.addEventListener('click', () => {
+            bubble.addEventListener('click', (event) => {
                 // susirandame kas siuo metu turi active klase ir ja pasaliname
                 bubble.closest('.controls')
                     .querySelector('.active')
@@ -152,6 +167,13 @@ class Controls {
                     .remove('active');
                 // uzdedam active klase ant paspausto elemento
                 bubble.classList.add('active');
+
+                const newIndex = parseInt(bubble.dataset.index);
+
+                const diff = newIndex - this.currentlyActive;
+                this.currentlyActive = newIndex;
+
+                this.updateSliderList(diff);
             });
         }
     }
