@@ -6,7 +6,7 @@ class Slider {
         this.dataURL = params.dataURL;
         this.renderPosition = params.renderPosition;
         this.imgPath = params.imgPath;
-        this.maxItemsOnMobile = 9;
+        this.maxItems = 9;
 
         this.data = null;
         this.DOM = null;
@@ -16,20 +16,17 @@ class Slider {
         this.init();
     }
 
-    init() {
+    async init() {
         if (!this.isValidSelector()) {
             return;
         }
         this.willItOverwriteContent();
 
-        const getData = async () => {
-            this.data = await ajax(this.dataURL, this.render);
-            this.render();
-        }
-
-        getData();
+        this.data = await ajax(this.dataURL, this.render);
+        this.render();
 
         // TODO: prideda eventListener
+        this.controls.addEvents();
     }
 
     willItOverwriteContent() {
@@ -76,13 +73,19 @@ class Slider {
     }
 
     render() {
+        const itemsCount = this.data.length > this.maxItems ? this.maxItems : this.data.length;
+
         this.cardList = new CardList({
             data: this.data,
-            imgPath: this.imgPath
+            imgPath: this.imgPath,
+            itemsCount: itemsCount
         });
-        this.controls = new Controls();
+        this.controls = new Controls({
+            itemsCount: itemsCount,
+            parentDOM: this.DOM
+        });
 
-        const HTML = `<div class="slider" style="--items-count: ${this.data.length};">
+        const HTML = `<div class="slider" style="--items-count: ${itemsCount};">
                             ${this.cardList.render()}
                             ${this.controls.render()}
                         </div>`;
@@ -98,12 +101,15 @@ class CardList {
     constructor(params) {
         this.data = params.data;
         this.imgPath = params.imgPath;
+        this.itemsCount = params.itemsCount;
     }
 
     render() {
         let HTML = '';
-        for (const item of this.data) {
-            HTML += `<div class="item">
+        const size = this.data.length;
+        for (let i = 0; i < this.itemsCount; i++) {
+            const item = this.data[i];
+            HTML += `<div class="item index-${i}">
                         <img src="${this.imgPath + item.photo}" alt="${item.title} list image">
                         <div class="details">
                             <div class="category">${item.category}</div>
@@ -120,12 +126,34 @@ class CardList {
 
 class Controls {
     constructor(params) {
+        this.itemsCount = params.itemsCount;
+        this.parentDOM = params.parentDOM;
+
+        this.bubblesDOM = null;
+
         this.currentlyActive = 0;
-        // console.log(params);
     }
 
     render() {
-        return '<div class="controls">......</div>';
+        return `<div class="controls">
+                    <div class="bubble active"></div>${'<div class="bubble"></div>'.repeat(this.itemsCount - 1)}
+                </div>`;
+    }
+
+    addEvents() {
+        this.bubblesDOM = this.parentDOM.querySelectorAll('.bubble');
+
+        for (const bubble of this.bubblesDOM) {
+            bubble.addEventListener('click', () => {
+                // susirandame kas siuo metu turi active klase ir ja pasaliname
+                bubble.closest('.controls')
+                    .querySelector('.active')
+                    .classList
+                    .remove('active');
+                // uzdedam active klase ant paspausto elemento
+                bubble.classList.add('active');
+            });
+        }
     }
 
     showNext(step = 1) {
