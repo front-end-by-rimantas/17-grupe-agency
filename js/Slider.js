@@ -3,12 +3,12 @@ import { ajax } from './ajax.js';
 class Slider {
     constructor(params) {
         this.selector = params.selector;
-        this.data = params.data;
         this.dataURL = params.dataURL;
         this.renderPosition = params.renderPosition;
         this.imgPath = params.imgPath;
         this.maxItemsOnMobile = 9;
 
+        this.data = null;
         this.DOM = null;
         this.cardList = null;
         this.controls = null;
@@ -21,7 +21,13 @@ class Slider {
             return;
         }
         this.willItOverwriteContent();
-        ajax(this.dataURL, this.render);
+
+        const getData = async () => {
+            this.data = await ajax(this.dataURL, this.render);
+            this.render();
+        }
+
+        getData();
 
         // TODO: prideda eventListener
     }
@@ -97,7 +103,6 @@ class CardList {
     render() {
         let HTML = '';
         for (const item of this.data) {
-            console.log(item);
             HTML += `<div class="item">
                         <img src="${this.imgPath + item.photo}" alt="${item.title} list image">
                         <div class="details">

@@ -1,9 +1,13 @@
-function renderServices(selector, data) {
+import { ajax } from './ajax.js';
+
+async function renderServices(selector, dataURL) {
     // validation
 
     // logic
     const DOM = document.querySelector(selector);
     let HTML = '';
+
+    const data = await ajax(dataURL);
     const size = data.length;
 
     for (let i = 0; i < size; i++) {

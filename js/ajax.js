@@ -1,19 +1,30 @@
-function ajax(dataFileURL, callback) {
-    const URL = 'https://front-end-by-rimantas.github.io/17-grupe-agency/data/' + dataFileURL;
+function ajax(dataFileURL) {
+    return new Promise(function (resolve, reject) {
+        const URL = 'https://front-end-by-rimantas.github.io/17-grupe-agency/data/' + dataFileURL;
 
-    const xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", URL, true);
 
-    console.log('REQUESTING DATA:');
-    console.log(URL);
-    console.log(callback);
+        xhttp.onload = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                resolve(JSON.parse(xhttp.responseText));
+            } else {
+                reject({
+                    status: this.status,
+                    statusText: xhttp.statusText
+                });
+            }
+        };
 
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            callback(JSON.parse(xhttp.responseText));
-        }
-    };
-    xhttp.open("GET", URL, true);
-    xhttp.send();
+        xhttp.onerror = function () {
+            reject({
+                status: this.status,
+                statusText: xhttp.statusText
+            });
+        };
+
+        xhttp.send();
+    });
 }
 
 export { ajax };
