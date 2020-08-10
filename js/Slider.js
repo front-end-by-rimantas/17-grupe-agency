@@ -1,7 +1,10 @@
+import { ajax } from './ajax.js';
+
 class Slider {
     constructor(params) {
         this.selector = params.selector;
         this.data = params.data;
+        this.dataURL = params.dataURL;
         this.renderPosition = params.renderPosition;
         this.imgPath = params.imgPath;
         this.maxItemsOnMobile = 9;
@@ -18,7 +21,7 @@ class Slider {
             return;
         }
         this.willItOverwriteContent();
-        this.render();
+        ajax(this.dataURL, this.render);
 
         // TODO: prideda eventListener
     }

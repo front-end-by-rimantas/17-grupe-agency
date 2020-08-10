@@ -3,26 +3,25 @@
 import data from '../data/data.js';
 
 // import rendering functions
-import { ajax } from './ajax.js';
 import { renderServices } from './renderServices.js';
 import { renderFunFacts, addEventListenerFunFactsOnScroll } from './renderFunFacts.js';
 import { Slider } from './Slider.js';
 
 // execute
-const { funFacts, portfolio, news } = data;
+const { funFacts } = data;
 
-ajax(renderServices, '#services .services');
+renderServices('#services .services', 'services.json');
 
 renderFunFacts('#fun_facts > .fact-list', funFacts);
 new Slider({
     selector: '#portfolio_slider',
-    data: portfolio,
+    dataURL: 'portfolio.json',
     renderPosition: 'beforeend',
     imgPath: './img/portfolio/'
 });
 new Slider({
     selector: '#news_slider',
-    data: news,
+    dataURL: 'blog.json',
     imgPath: './img/blog/'
 });
 
